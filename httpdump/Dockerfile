@@ -1,5 +1,5 @@
 FROM  golang:1.10-alpine3.8  AS builder
-RUN apk add git
+RUN apk add git gcc
 RUN go get github.com/hsiafan/httpdump
 
 
