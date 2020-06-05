@@ -1,12 +1,12 @@
-FROM golang:1.10-alpine3.10  AS builder
-RUN apk add git gcc libpcap libpcap-dev libbsd-dev
+FROM centos:centos7  AS builder
+RUN yum install -y git gcc libpcap libpcap-devel
 RUN go get github.com/hsiafan/httpdump
 
 
 
 
 
-FROM alpine:3.10
+FROM centos:centos7
 RUN yum install -y libpcap-dev
 COPY --from=builder /go/src/bin/httpdump /usr/bin/httpdump
 
